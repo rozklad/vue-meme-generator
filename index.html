@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meme generator</title>
+    <script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
+
+    <!-- Optional -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="container">
+      <div id="meme">
+
+        <canvas id="canvas" v-bind:width="width" v-bind:height="height"></canvas>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <label class="control-label">
+              Select image preset
+            </label>
+          </div>
+        </div>
+
+        <div class="row presets">
+          <div class="col-sm-2 preset" v-for="preset in presets">
+            <img :src="preset" @click="setImage(preset)">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- Image settings -->
+            <div class="form-group">
+              <label for="image" class="control-label">
+                Upload custom image
+              </label>
+              <input type="file" id="image" @change="onFileChange">
+            </div>
+
+            <div class="form-group">
+              <label for="width" class="control-label">
+                Width
+              </label>
+              <input type="number" id="width" v-model="width" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="height" class="control-label">
+                Height
+              </label>
+              <input type="number" id="height" v-model="height" class="form-control">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <!-- Text settings -->
+            <div class="form-group">
+              <label for="text" class="control-label">
+                Text
+              </label>
+              <textarea id="text" v-model="text" class="form-control" rows="8" @keyup="onTextChange" placeholder="Write your text" placeholder="Write your message here!"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="textStrokeStyle" class="control-label">
+                Stroke
+              </label>
+              <input type="color" id="textStrokeStyle" v-model="textStrokeStyle" @change="onTextChange">
+            </div>
+
+            <div class="form-group">
+              <label for="textFillStyle" class="control-label">
+                Fill
+              </label>
+              <input type="color" id="textFillStyle" v-model="textFillStyle" @change="onTextChange">
+            </div>
+          </div>
+        </div>
+
+        <a class="btn btn-success" download="Meme.png" @click="download" id="download" href="#">
+          Download
+        </a>
+
+        <button type="button" class="btn btn-default" @click="reset">
+          Reset
+        </button>
+
+      </div>
+    </div>
+
+    <script type="text/javascript" src="main.js"></script>
+  </body>
+</html>

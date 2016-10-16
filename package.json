@@ -1,0 +1,24 @@
+{
+  "name": "vue-meme-generator",
+  "version": "0.1.0",
+  "description": "Meme generator Vue.js",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rozklad/vue-meme-generator.git"
+  },
+  "keywords": [
+    "vue",
+    "meme",
+    "generator"
+  ],
+  "author": "rozklad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rozklad/vue-meme-generator/issues"
+  },
+  "homepage": "https://github.com/rozklad/vue-meme-generator#readme",
+  "dependencies": {
+    "vue": "^2.0.3"
+  }
+}
